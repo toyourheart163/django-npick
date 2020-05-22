@@ -4,7 +4,7 @@
 ### Install
 
 ```bash
-pip install djangonpick
+pip install django-npick
 ```
 
 ### Usage
@@ -13,12 +13,17 @@ pip install djangonpick
 
 ```python
 # project/settings.py
-from djangonpick import TEMPLATE_PATH   # 1
+from django-npick import TEMPLATE_PATH   # 1
+
+INSTALLED_APPS = [
+  ...
+  'django_npick',  # 2 can use static files eg. css js font
+  ]
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_PATH],  # add templates path # 2
+        'DIRS': [TEMPLATE_PATH],  # add templates path # 3
         'APP_DIRS': True,
         'OPTIONS': {)
     },
@@ -47,13 +52,13 @@ class Icon(models.Model):
 # app/admin.py
 django.contrib import admin
 from django import forms
-from djangonpick.widgets import IconWidget  # 3
+from django_npick import IconWidget  # 4
 
 from .models import Bingo
 
 
 class BingoForm(forms.ModelForm):
-    name = forms.CharField(widget=IconWidget)  # 4
+    name = forms.CharField(widget=IconWidget)  # 5
 
 
 class BingoAdmin(admin.ModelAdmin):

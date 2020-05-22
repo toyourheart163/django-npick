@@ -6,7 +6,7 @@ from os import walk
 import re
 from setuptools import setup, find_packages
 
-version_file = os.path.abspath(os.path.join('djangonpick', '__init__.py'))
+version_file = os.path.abspath(os.path.join('django_npick', '__init__.py'))
 with open(version_file) as f:
     data = f.readline().strip()
 version = re.findall("'(.*?)'", data)[0]
@@ -29,7 +29,7 @@ def package_files(directories):
 
 
 setup(
-    name='djangonpick',
+    name='django-npick',
     version=version,
     author='Mikele',
     author_email='blive200@gmail.com',
@@ -37,12 +37,12 @@ setup(
     description='Django Pick material Icon Widget',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/toyourheart163/djangonpick',
+    url='https://github.com/toyourheart163/django-npick',
     packages=find_packages(),
     package_data={
         '': package_files([
-            'djangonpick/static',
-            'djangonpick/templates'
+            'django_npick/static',
+            'django_npick/templates'
         ])
     },
     classifiers=[
